@@ -53,3 +53,35 @@ def delete_property(request, property_id):
     property.delete()
 
     return redirect('property_list')
+
+# View to edit a property
+def edit_property(request, property_id):
+
+    property = Property.objects.get(id=property_id)
+
+    if request.method == 'POST':
+
+        form = PropertyForm(
+            request.POST,
+            instance=property
+        )
+
+        if form.is_valid():
+            form.save()
+            return redirect('property_list')
+
+    else:
+
+        form = PropertyForm(
+            instance=property
+        )
+
+    context = {
+        'form': form
+    }
+
+    return render(
+        request,
+        'maintenance/edit_property.html',
+        context
+    )

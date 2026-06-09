@@ -11,4 +11,9 @@ urlpatterns = [
     views.delete_property,
     name='delete_property'
 ),
+    path(
+    'properties/edit/<int:property_id>/',
+    views.edit_property,
+    name='edit_property'
+),
 ]
