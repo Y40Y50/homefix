@@ -20,4 +20,20 @@ urlpatterns = [
     path('jobs/create/', views.create_job, name='create_job'),
     path('jobs/delete/<int:job_id>/', views.delete_job, name='delete_job'),
     path('jobs/edit/<int:job_id>/', views.edit_job, name='edit_job'),
+    path(
+    'contractors/create/',
+    views.create_contractor,
+    name='create_contractor'
+),
+path(
+    'contractors/delete/<int:contractor_id>/',
+    views.delete_contractor,
+    name='delete_contractor'
+),
+path(
+    'contractors/edit/<int:contractor_id>/',
+    views.edit_contractor,
+    name='edit_contractor'
+),
+
 ]

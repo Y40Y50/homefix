@@ -1,5 +1,5 @@
 from django import forms
-from .models import Property, MaintenanceJob
+from .models import Property, MaintenanceJob, Contractor
 
 
 class PropertyForm(forms.ModelForm):
@@ -22,4 +22,16 @@ class MaintenanceJobForm(forms.ModelForm):
             'status',
         ]
 
+
+class ContractorForm(forms.ModelForm):
+
+    class Meta:
+        model = Contractor
+
+        fields = [
+            'name',
+            'trade_type',
+            'phone',
+            'email',
+        ]
         

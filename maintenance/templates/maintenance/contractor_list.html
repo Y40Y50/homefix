@@ -3,34 +3,47 @@
 {% block content %}
 
 <h1 class="mb-4">Contractors</h1>
+<a href="/contractors/create/" class="btn btn-primary mb-4">
+    Create Contractor
+</a>
 
 <div class="row">
 
     {% for contractor in contractors %}
 
-        <div class="col-md-4 mb-3">
+    <div class="col-md-4 mb-3">
 
-            <div class="card">
+        <div class="card">
 
-                <div class="card-body">
+            <div class="card-body">
 
-                    <h5 class="card-title">
-                        {{ contractor.name }}
-                    </h5>
+                <h5 class="card-title">
+                    {{ contractor.name }}
+                </h5>
 
-                    <p class="card-text">
-                        {{ contractor.trade_type }}
-                    </p>
+                <p class="card-text">
+                    {{ contractor.trade_type }}
+                </p>
 
-                    <p class="card-text">
-                        {{ contractor.phone }}
-                    </p>
+                <p class="card-text">
+                    {{ contractor.phone }}
+                </p>
+                <p class="card-text">
+                    {{ contractor.email }}
+                </p>
+                <a href="/contractors/edit/{{ contractor.id }}/" class="btn btn-warning btn-sm mt-2">
+                    Edit
+                </a>
+                <a href="/contractors/delete/{{ contractor.id }}/" class="btn btn-danger btn-sm mt-2">
+                    Delete
+                </a>
 
-                </div>
 
             </div>
 
         </div>
+
+    </div>
 
     {% endfor %}
 

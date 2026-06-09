@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Property, Contractor, MaintenanceJob
-from .forms import PropertyForm, MaintenanceJobForm
+from .forms import PropertyForm, MaintenanceJobForm, ContractorForm
 
 def home(request):
     return render(request, 'maintenance/home.html')
@@ -165,5 +165,73 @@ def edit_job(request, job_id):
     return render(
         request,
         'maintenance/edit_job.html',
+        context
+    )
+
+# View to create a new contractor
+def create_contractor(request):
+
+    if request.method == 'POST':
+
+        form = ContractorForm(request.POST)
+
+        if form.is_valid():
+
+            form.save()
+
+            return redirect('contractor_list')
+
+    else:
+
+        form = ContractorForm()
+
+    context = {
+        'form': form
+    }
+
+    return render(
+        request,
+        'maintenance/create_contractor.html',
+        context
+    )
+# View to delete a contractor
+def delete_contractor(request, contractor_id):
+
+    contractor = Contractor.objects.get(id=contractor_id)
+
+    contractor.delete()
+
+    return redirect('contractor_list')
+
+def edit_contractor(request, contractor_id):
+
+    contractor = Contractor.objects.get(id=contractor_id)
+
+    if request.method == 'POST':
+
+        form = ContractorForm(
+            request.POST,
+            instance=contractor
+        )
+
+        if form.is_valid():
+
+            form.save()
+
+            return redirect('contractor_list')
+
+    else:
+
+        form = ContractorForm(
+            instance=contractor
+        )
+
+    context = {
+        'form': form
+    }
+
+    return render(
+        request,
+        'maintenance/edit_contractor.html',
         context
     )
