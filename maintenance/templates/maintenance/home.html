@@ -2,14 +2,55 @@
 
 {% block content %}
 
-<h1>Welcome to HomeFix</h1>
+<h1 class="display-4 fw-bold mb-4">
+    HomeFix Dashboard
+</h1>
 
-<p class="lead">
-    Manage your home maintenance jobs, contractors and properties.
-</p>
+<div class="row">
 
-<button class="btn btn-primary">
-    Get Started
-</button>
+    <div class="col-md-4 mb-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Properties</h5>
+                <h1>{{ property_count }}</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Contractors</h5>
+                <h1>{{ contractor_count }}</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Maintenance Jobs</h5>
+                <h1>{{ job_count }}</h1>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="mt-4">
+
+    <a href="/properties/" class="btn btn-primary">
+        View Properties
+    </a>
+
+    <a href="/contractors/" class="btn btn-success">
+        View Contractors
+    </a>
+
+    <a href="/jobs/" class="btn btn-warning">
+        View Jobs
+    </a>
+
+</div>
 
 {% endblock %}

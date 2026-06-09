@@ -3,8 +3,22 @@ from .models import Property, Contractor, MaintenanceJob
 from .forms import PropertyForm, MaintenanceJobForm, ContractorForm
 
 def home(request):
-    return render(request, 'maintenance/home.html')
 
+    property_count = Property.objects.count()
+    contractor_count = Contractor.objects.count()
+    job_count = MaintenanceJob.objects.count()
+
+    context = {
+        'property_count': property_count,
+        'contractor_count': contractor_count,
+        'job_count': job_count,
+    }
+
+    return render(
+        request,
+        'maintenance/home.html',
+        context
+    )
 def property_list(request):
     properties = Property.objects.all()
 
