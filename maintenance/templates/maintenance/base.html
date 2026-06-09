@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,30 +12,33 @@
 
 <body>
 
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark py-3" style="background-color: #242d43;">
         <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="container">
 
-                    <a class="navbar-brand" href="/">HomeFix</a>
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <img src="{% static 'images/logo.png' %}" height="60" class="me-2">
 
-                    <div class="navbar-nav">
+                <span class="fs-3 fw-bold">
+                    HomeFix
+                </span>
+            </a>
 
-                        <a class="nav-link" href="/">
-                            Home
-                        </a>
+            <div class="navbar-nav">
 
-                        <a class="nav-link" href="/properties/">
-                            Properties
-                        </a>
-                        <a class="nav-link" href="/contractors/">
-                            Contractors
-                        </a>
+                <a class="nav-link" href="/">
+                    Home
+                </a>
 
-                    </div>
+                <a class="nav-link" href="/properties/">
+                    Properties
+                </a>
 
-                </div>
-            </nav>
+                <a class="nav-link" href="/contractors/">
+                    Contractors
+                </a>
+
+            </div>
+
         </div>
     </nav>
 
