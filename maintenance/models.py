@@ -27,3 +27,25 @@ class Property(models.Model):
 
     def __str__(self):
         return self.name
+    
+# Creating the Contractor Table 
+class Contractor(models.Model):
+    TRADE_TYPES = [
+        ('plumber', 'Plumber'),
+        ('electrician', 'Electrician'),
+        ('carpenter', 'Carpenter'),
+        ('painter', 'Painter'),
+        ('other', 'Other'),
+    ]
+    # Stores the contractor's name
+    name = models.CharField(max_length=100)
+    trade_type = models.CharField(
+        max_length=20,
+        choices=TRADE_TYPES
+    )
+    phone = models.CharField(max_length=20)
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.name
+    
