@@ -23,6 +23,25 @@ class Property(models.Model):
 
     def __str__(self):
         return self.name
+
+class Property(models.Model):
+
+    PROPERTY_TYPES = [
+        ('house', 'House'),
+        ('flat', 'Flat'),
+        ('bungalow', 'Bungalow'),
+        ('other', 'Other'),
+    ]
+
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
+    )
+
+    name = models.CharField(max_length=100)
+    address = models.TextField()
     
 # Creating the Contractor Table 
 class Contractor(models.Model):

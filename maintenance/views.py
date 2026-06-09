@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Property, Contractor, MaintenanceJob
 from .forms import PropertyForm, MaintenanceJobForm, ContractorForm
+from django.contrib.auth.decorators import login_required
 
 def home(request):
 
@@ -19,8 +20,12 @@ def home(request):
         'maintenance/home.html',
         context
     )
+
+@login_required
 def property_list(request):
-    properties = Property.objects.all()
+    properties = Property.objects.filter(
+    user=request.user
+    )
 
     return render(
         request,
@@ -37,6 +42,7 @@ def contractor_list(request):
     )
 
 # View to create a new property
+@login_required
 def create_property(request):
 
     if request.method == 'POST':
@@ -44,10 +50,13 @@ def create_property(request):
         form = PropertyForm(request.POST)
 
         if form.is_valid():
-            form.save()
+            property = form.save(commit=False)
+            property.user = request.user
+            property.save()
             return redirect('property_list')
 
     else:
+
         form = PropertyForm()
 
     context = {
