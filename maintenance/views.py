@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Property, Contractor
-from .forms import PropertyForm
+from .models import Property, Contractor, MaintenanceJob
+from .forms import PropertyForm, MaintenanceJobForm
 
 def home(request):
     return render(request, 'maintenance/home.html')
@@ -83,5 +83,87 @@ def edit_property(request, property_id):
     return render(
         request,
         'maintenance/edit_property.html',
+        context
+    )
+# View to list all maintenance jobs
+def job_list(request):
+
+    jobs = MaintenanceJob.objects.all()
+
+    context = {
+        'jobs': jobs
+    }
+
+    return render(
+        request,
+        'maintenance/job_list.html',
+        context
+    )
+
+# View to create a new maintenance job
+def create_job(request):
+
+    if request.method == 'POST':
+
+        form = MaintenanceJobForm(request.POST)
+
+        if form.is_valid():
+
+            form.save()
+
+            return redirect('job_list')
+
+    else:
+
+        form = MaintenanceJobForm()
+
+    context = {
+        'form': form
+    }
+
+    return render(
+        request,
+        'maintenance/create_job.html',
+        context
+    )
+
+def delete_job(request, job_id):
+
+    job = MaintenanceJob.objects.get(id=job_id)
+
+    job.delete()
+
+    return redirect('job_list')
+
+def edit_job(request, job_id):
+
+    job = MaintenanceJob.objects.get(id=job_id)
+
+    if request.method == 'POST':
+
+        form = MaintenanceJobForm(
+            request.POST,
+            instance=job
+        )
+
+        if form.is_valid():
+
+            form.save()
+
+            return redirect('job_list')
+
+    else:
+
+        form = MaintenanceJobForm(
+            instance=job
+        )
+
+    context = {
+        'form': form
+    }
+
+    return render(
+        request,
+        'maintenance/edit_job.html',
         context
     )

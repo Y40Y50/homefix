@@ -1,0 +1,59 @@
+{% extends 'maintenance/base.html' %}
+
+{% block content %}
+
+<h1 class="display-4 fw-bold mb-4">
+    Maintenance Jobs
+</h1>
+
+<div class="row">
+
+    {% for job in jobs %}
+
+    <div class="col-md-6 mb-3">
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body">
+
+                <h5 class="card-title">
+                    {{ job.title }}
+                </h5>
+
+                <p>
+                    <strong>Property:</strong>
+                    {{ job.property }}
+                </p>
+
+                <p>
+                    <strong>Contractor:</strong>
+                    {{ job.contractor }}
+                </p>
+
+                <p>
+                    <strong>Priority:</strong>
+                    {{ job.priority }}
+                </p>
+
+                <p>
+                    <strong>Status:</strong>
+                    {{ job.status }}
+                </p>
+                <a href="/jobs/edit/{{ job.id }}/" class="btn btn-warning btn-sm mt-2">
+                    Edit
+                </a>
+                <a href="/jobs/delete/{{ job.id }}/" class="btn btn-danger btn-sm mt-2">
+                    Delete
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
