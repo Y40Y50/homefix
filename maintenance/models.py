@@ -10,11 +10,7 @@ class Property(models.Model):
         ('bungalow', 'Bungalow'),
         ('other', 'Other'),
     ]
-# Foreign Key for table relationship with User
-    user = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE
-    )
+
 # Basic details about the property
     name = models.CharField(max_length=100)
     address = models.TextField()

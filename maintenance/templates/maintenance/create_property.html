@@ -4,7 +4,9 @@
 
 <h1>Add Property</h1>
 
-<form>
+<form method="POST">
+
+    {% csrf_token %}
 
     {{ form }}
 
