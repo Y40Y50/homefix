@@ -1,0 +1,39 @@
+{% extends 'maintenance/base.html' %}
+
+{% block content %}
+
+<h1 class="mb-4">Contractors</h1>
+
+<div class="row">
+
+    {% for contractor in contractors %}
+
+        <div class="col-md-4 mb-3">
+
+            <div class="card">
+
+                <div class="card-body">
+
+                    <h5 class="card-title">
+                        {{ contractor.name }}
+                    </h5>
+
+                    <p class="card-text">
+                        {{ contractor.trade_type }}
+                    </p>
+
+                    <p class="card-text">
+                        {{ contractor.phone }}
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>HomeFix</title>
-</head>
-<body>
-    <h1>Welcome to HomeFix</h1>
-    <p>Manage your home maintenance jobs.</p>
-</body>
-</html>
+{% extends 'maintenance/base.html' %}
+
+{% block content %}
+
+<h1>Welcome to HomeFix</h1>
+
+<p class="lead">
+    Manage your home maintenance jobs, contractors and properties.
+</p>
+
+<button class="btn btn-primary">
+    Get Started
+</button>
+
+{% endblock %}

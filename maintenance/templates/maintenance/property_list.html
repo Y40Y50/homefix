@@ -1,0 +1,35 @@
+{% extends 'maintenance/base.html' %}
+
+{% block content %}
+
+<h1 class="mb-4">Properties</h1>
+
+<div class="row">
+
+    {% for property in properties %}
+
+        <div class="col-md-4 mb-3">
+
+            <div class="card">
+
+                <div class="card-body">
+
+                    <h5 class="card-title">
+                        {{ property.name }}
+                    </h5>
+
+                    <p class="card-text">
+                        {{ property.address }}
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
