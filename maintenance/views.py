@@ -1,8 +1,10 @@
+from django.core import paginator
 from django.shortcuts import render, redirect
 from .models import Property, Contractor, MaintenanceJob
 from .forms import PropertyForm, MaintenanceJobForm, ContractorForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from django.core.paginator import Paginator
 
 @login_required
 def home(request):
@@ -176,6 +178,11 @@ def job_list(request):
             Q(property__name__icontains=search) |
             Q(contractor__name__icontains=search)
         )
+    paginator = Paginator(jobs, 4)  # 4 jobs per page
+
+    page_number = request.GET.get('page')
+
+    jobs = paginator.get_page(page_number)
 
     context = {
         'jobs': jobs,
