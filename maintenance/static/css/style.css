@@ -62,13 +62,38 @@ body {
     font-size:18px;
 }
 
+.contact-item,
+.social-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:15px;
+}
+
+.contact-item i,
+.social-item i{
+    width:20px;
+    color:#4da3ff;
+}
+
+.social-item{
+    justify-content:flex-end;
+}
+
+.footer h4{
+    margin-bottom:25px;
+    font-weight:600;
+}
 .footer{
     background:#242d43;
     color:white;
-    padding:40px 0;
-    margin-top:60px;
+    padding:50px 0;
+}
+.footer a{
+    color:white;
+    text-decoration:none;
 }
 
-.footer hr{
-    border-color:rgba(255,255,255,.3);
+.footer a:hover{
+    color:#4da3ff;
 }
