@@ -155,6 +155,13 @@ def job_list(request):
     jobs = MaintenanceJob.objects.filter(
         user=request.user
     )
+    sort = request.GET.get('sort')
+
+    if sort == 'newest':
+        jobs = jobs.order_by('-created_at')
+
+    elif sort == 'oldest':
+        jobs = jobs.order_by('created_at')
 
     status = request.GET.get('status')
 
@@ -174,6 +181,7 @@ def job_list(request):
         'jobs': jobs,
         'selected_status': status,
         'search': search,
+        'sort': sort
     }
 
     return render(
