@@ -6,8 +6,16 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.core.paginator import Paginator
 
-@login_required
+
 def home(request):
+
+    return render(
+        request,
+        'maintenance/home.html'
+    )
+
+@login_required
+def dashboard(request):
 
     property_count = Property.objects.filter(
         user=request.user
@@ -47,7 +55,7 @@ def home(request):
 
     return render(
         request,
-        'maintenance/home.html',
+        'maintenance/dashboard.html',
         context
     )
 @login_required

@@ -1,0 +1,27 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.hero-section {
+    padding: 80px 0;
+}
+
+.offer-card {
+    transition: 0.3s;
+}
+
+.offer-card:hover {
+    transform: translateY(-5px);
+}
+
+.category-card {
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.footer {
+    background-color: #242d43;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
