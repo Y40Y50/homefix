@@ -5,6 +5,9 @@
 <h1 class="display-4 fw-bold mb-4">
     Maintenance Jobs
 </h1>
+<a href="/jobs/create/" class="btn btn-primary mb-3">
+    Create Job
+</a>
 
 <div class="row">
 
@@ -12,48 +15,71 @@
 
     <div class="col-md-6 mb-3">
 
-        <div class="card shadow-sm border-0">
+        {% if job.status == 'pending' %}
+        <div class="card shadow-sm border-warning border-3">
 
-            <div class="card-body">
+            {% elif job.status == 'in_progress' %}
+            <div class="card shadow-sm border-primary border-3">
 
-                <h5 class="card-title">
-                    {{ job.title }}
-                </h5>
+                {% elif job.status == 'completed' %}
+                <div class="card shadow-sm border-success border-3">
 
-                <p>
-                    <strong>Property:</strong>
-                    {{ job.property }}
-                </p>
+                    {% endif %}
 
-                <p>
-                    <strong>Contractor:</strong>
-                    {{ job.contractor }}
-                </p>
+                    <div class="card-body">
 
-                <p>
-                    <strong>Priority:</strong>
-                    {{ job.priority }}
-                </p>
+                        <h5 class="card-title">
+                            {{ job.title }}
+                        </h5>
 
-                <p>
-                    <strong>Status:</strong>
-                    {{ job.status }}
-                </p>
-                <a href="/jobs/edit/{{ job.id }}/" class="btn btn-warning btn-sm mt-2">
-                    Edit
-                </a>
-                <a href="/jobs/delete/{{ job.id }}/" class="btn btn-danger btn-sm mt-2">
-                    Delete
-                </a>
+                        <p>
+                            <strong>Property:</strong>
+                            {{ job.property }}
+                        </p>
+
+                        <p>
+                            <strong>Contractor:</strong>
+                            {{ job.contractor }}
+                        </p>
+
+                        <p>
+                            <strong>Priority:</strong>
+                            {{ job.priority }}
+                        </p>
+
+                        <p>
+                            <strong>Status:</strong>
+
+                            {% if job.status == 'pending' %}
+                            <span class="badge bg-warning fs-6">Pending</span>
+
+                            {% elif job.status == 'in_progress' %}
+                            <span class="badge bg-primary fs-6">In Progress</span>
+
+                            {% elif job.status == 'completed' %}
+                            <span class="badge bg-success fs-6">Completed</span>
+
+                            {% endif %}
+                        </p>
+                        <p>
+                            <strong>Created:</strong>
+                            {{ job.created_at|date:"d M Y" }}
+                        </p>
+                        <a href="/jobs/edit/{{ job.id }}/" class="btn btn-warning btn-sm mt-2">
+                            Edit
+                        </a>
+                        <a href="/jobs/delete/{{ job.id }}/" class="btn btn-danger btn-sm mt-2">
+                            Delete
+                        </a>
+
+                    </div>
+
+                </div>
 
             </div>
 
+            {% endfor %}
+
         </div>
 
-    </div>
-
-    {% endfor %}
-
-</div>
-
-{% endblock %}
+        {% endblock %}

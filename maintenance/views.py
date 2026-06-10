@@ -1,5 +1,3 @@
-from urllib import request
-
 from django.shortcuts import render, redirect
 from .models import Property, Contractor, MaintenanceJob
 from .forms import PropertyForm, MaintenanceJobForm, ContractorForm
@@ -178,6 +176,9 @@ def create_job(request):
         form.fields['property'].queryset = Property.objects.filter(
             user=request.user
         )
+        form.fields['contractor'].queryset = Contractor.objects.filter(
+            user=request.user
+        )
 
         if form.is_valid():
             job = form.save(commit=False)
@@ -188,9 +189,12 @@ def create_job(request):
     else:
         form = MaintenanceJobForm()
 
-        # Only show this user's properties
         form.fields['property'].queryset = Property.objects.filter(
-            user=request.user
+        user=request.user
+        )
+
+        form.fields['contractor'].queryset = Contractor.objects.filter(
+        user=request.user
         )
 
     return render(
