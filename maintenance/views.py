@@ -83,18 +83,25 @@ def create_property(request):
         context
     )
 # View to delete a property
+@login_required
 def delete_property(request, property_id):
 
-    property = Property.objects.get(id=property_id)
-
+    property = Property.objects.get(
+        id=property_id,
+        user=request.user
+    )
     property.delete()
 
     return redirect('property_list')
 
 # View to edit a property
+@login_required
 def edit_property(request, property_id):
 
-    property = Property.objects.get(id=property_id)
+    property = Property.objects.get(
+        id=property_id,
+        user=request.user
+    )
 
     if request.method == 'POST':
 
@@ -123,6 +130,7 @@ def edit_property(request, property_id):
         context
     )
 # View to list all maintenance jobs
+@login_required
 def job_list(request):
 
     jobs = MaintenanceJob.objects.filter(
@@ -140,6 +148,7 @@ def job_list(request):
     )
 
 # View to create a new maintenance job
+@login_required
 def create_job(request):
 
     if request.method == 'POST':
@@ -167,18 +176,25 @@ def create_job(request):
         context
     )
 
+@login_required
 def delete_job(request, job_id):
 
-    job = MaintenanceJob.objects.get(id=job_id)
+    job = MaintenanceJob.objects.get(
+        id=job_id,
+        user=request.user
+    )
 
     job.delete()
 
     return redirect('job_list')
 
+@login_required
 def edit_job(request, job_id):
 
-    job = MaintenanceJob.objects.get(id=job_id)
-
+    job = MaintenanceJob.objects.get(
+        id=job_id,
+        user=request.user
+    )
     if request.method == 'POST':
 
         form = MaintenanceJobForm(
@@ -209,6 +225,7 @@ def edit_job(request, job_id):
     )
 
 # View to create a new contractor
+@login_required
 def create_contractor(request):
 
     if request.method == 'POST':
@@ -235,17 +252,25 @@ def create_contractor(request):
         context
     )
 # View to delete a contractor
+
+@login_required
 def delete_contractor(request, contractor_id):
 
-    contractor = Contractor.objects.get(id=contractor_id)
-
+    contractor = Contractor.objects.get(
+    id=contractor_id,
+    user=request.user
+)
     contractor.delete()
 
     return redirect('contractor_list')
 
+@login_required
 def edit_contractor(request, contractor_id):
 
-    contractor = Contractor.objects.get(id=contractor_id)
+    contractor = Contractor.objects.get(
+    id=contractor_id,
+    user=request.user
+)
 
     if request.method == 'POST':
 
