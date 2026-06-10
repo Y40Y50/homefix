@@ -3,11 +3,20 @@ from .models import Property, Contractor, MaintenanceJob
 from .forms import PropertyForm, MaintenanceJobForm, ContractorForm
 from django.contrib.auth.decorators import login_required
 
+@login_required
 def home(request):
 
-    property_count = Property.objects.count()
-    contractor_count = Contractor.objects.count()
-    job_count = MaintenanceJob.objects.count()
+    property_count = Property.objects.filter(
+    user=request.user
+).count()
+
+contractor_count = Contractor.objects.filter(
+    user=request.user
+).count()
+
+job_count = MaintenanceJob.objects.filter(
+    user=request.user
+).count()
 
     context = {
         'property_count': property_count,
@@ -23,8 +32,9 @@ def home(request):
 
 @login_required
 def property_list(request):
+
     properties = Property.objects.filter(
-    user=request.user
+        user=request.user
     )
 
     return render(
@@ -32,15 +42,20 @@ def property_list(request):
         'maintenance/property_list.html',
         {'properties': properties}
     )
+
+
+@login_required
 def contractor_list(request):
-    contractors = Contractor.objects.all()
+
+    contractors = Contractor.objects.filter(
+        user=request.user
+    )
 
     return render(
         request,
         'maintenance/contractor_list.html',
         {'contractors': contractors}
     )
-
 # View to create a new property
 @login_required
 def create_property(request):
@@ -111,7 +126,9 @@ def edit_property(request, property_id):
 # View to list all maintenance jobs
 def job_list(request):
 
-    jobs = MaintenanceJob.objects.all()
+    jobs = MaintenanceJob.objects.filter(
+    user=request.user
+)
 
     context = {
         'jobs': jobs
@@ -132,8 +149,9 @@ def create_job(request):
 
         if form.is_valid():
 
-            form.save()
-
+            job = form.save(commit=False)
+            job.user = request.user
+            job.save()
             return redirect('job_list')
 
     else:
@@ -199,9 +217,9 @@ def create_contractor(request):
         form = ContractorForm(request.POST)
 
         if form.is_valid():
-
-            form.save()
-
+            contractor = form.save(commit=False)
+            contractor.user = request.user
+            contractor.save()
             return redirect('contractor_list')
 
     else:
