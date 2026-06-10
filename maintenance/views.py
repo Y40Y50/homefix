@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Property, Contractor, MaintenanceJob
 from .forms import PropertyForm, MaintenanceJobForm, ContractorForm
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 @login_required
 def home(request):
@@ -152,11 +153,27 @@ def edit_property(request, property_id):
 def job_list(request):
 
     jobs = MaintenanceJob.objects.filter(
-    user=request.user
-)
+        user=request.user
+    )
+
+    status = request.GET.get('status')
+
+    if status:
+        jobs = jobs.filter(status=status)
+
+    search = request.GET.get('search', '')
+
+    if search:
+        jobs = jobs.filter(
+            Q(title__icontains=search) |
+            Q(property__name__icontains=search) |
+            Q(contractor__name__icontains=search)
+        )
 
     context = {
-        'jobs': jobs
+        'jobs': jobs,
+        'selected_status': status,
+        'search': search,
     }
 
     return render(
@@ -164,7 +181,6 @@ def job_list(request):
         'maintenance/job_list.html',
         context
     )
-
 # View to create a new maintenance job
 @login_required
 def create_job(request):
