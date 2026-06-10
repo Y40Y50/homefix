@@ -2,14 +2,18 @@
 
 {% block content %}
 
-<h1 class="display-4 fw-bold mb-4">
+<h1 class="display-4 fw-bold mb-2">
     HomeFix Dashboard
 </h1>
+
+<p class="text-muted mb-4">
+    👋 Welcome back, <strong>{{ request.user.username }}</strong>
+</p>
 
 <div class="row">
 
     <div class="col-md-4 mb-3">
-        <div class="card text-center">
+        <div class="card shadow-sm border-0 text-center">
             <div class="card-body">
                 <h5 class="card-title">Properties</h5>
                 <h1>{{ property_count }}</h1>
@@ -18,7 +22,7 @@
     </div>
 
     <div class="col-md-4 mb-3">
-        <div class="card text-center">
+        <div class="card shadow-sm border-0 text-center">
             <div class="card-body">
                 <h5 class="card-title">Contractors</h5>
                 <h1>{{ contractor_count }}</h1>
@@ -27,7 +31,7 @@
     </div>
 
     <div class="col-md-4 mb-3">
-        <div class="card text-center">
+        <div class="card shadow-sm border-0 text-center">
             <div class="card-body">
                 <h5 class="card-title">Maintenance Jobs</h5>
                 <h1>{{ job_count }}</h1>
@@ -36,19 +40,65 @@
     </div>
 
 </div>
+<div class="row mt-4">
 
-<div class="mt-4">
+    <div class="col-md-4 mb-3">
+        <div class="card shadow-sm border-0 text-center">
+            <div class="card-body">
+                <h5 class="card-title">Pending Jobs</h5>
+                <h1>{{ pending_jobs }}</h1>
+            </div>
+        </div>
+    </div>
 
-    <a href="/properties/" class="btn btn-primary">
-        View Properties
+    <div class="col-md-4 mb-3">
+        <div class="card shadow-sm border-0 text-center">
+            <div class="card-body">
+                <h5 class="card-title">In Progress</h5>
+                <h1>{{ in_progress_jobs }}</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card shadow-sm border-0 text-center">
+            <div class="card-body">
+                <h5 class="card-title">Completed Jobs</h5>
+                <h1>{{ completed_jobs }}</h1>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="d-flex gap-3 mt-4">
+
+    <a href="/properties/" class="btn btn-primary" style="width:170px;">
+        🏠 Properties
     </a>
 
-    <a href="/contractors/" class="btn btn-success">
-        View Contractors
+    <a href="/contractors/" class="btn btn-success" style="width:170px;">
+        👷 Contractors
     </a>
 
-    <a href="/jobs/" class="btn btn-warning">
-        View Jobs
+    <a href="/jobs/" class="btn btn-warning" style="width:170px;">
+        🔧 Jobs
+    </a>
+
+</div>
+
+<div class="d-flex gap-3 mt-3">
+
+    <a href="/properties/create/" class="btn btn-outline-primary" style="width:170px;">
+        ➕ Create Property
+    </a>
+
+    <a href="/contractors/create/" class="btn btn-outline-success" style="width:170px;">
+        ➕ Create Contractor
+    </a>
+
+    <a href="/jobs/create/" class="btn btn-outline-warning" style="width:170px;">
+        ➕ Create Job
     </a>
 
 </div>

@@ -1,3 +1,5 @@
+from urllib import request
+
 from django.shortcuts import render, redirect
 from .models import Property, Contractor, MaintenanceJob
 from .forms import PropertyForm, MaintenanceJobForm, ContractorForm
@@ -18,10 +20,28 @@ def home(request):
         user=request.user
     ).count()
 
+    pending_jobs = MaintenanceJob.objects.filter(
+        user=request.user,
+        status='pending'
+    ).count()
+
+    in_progress_jobs = MaintenanceJob.objects.filter(
+        user=request.user,
+        status='in_progress'
+    ).count()
+
+    completed_jobs = MaintenanceJob.objects.filter(
+        user=request.user,
+        status='completed'
+    ).count()
+
     context = {
         'property_count': property_count,
         'contractor_count': contractor_count,
         'job_count': job_count,
+        'pending_jobs': pending_jobs,
+        'in_progress_jobs': in_progress_jobs,
+        'completed_jobs': completed_jobs,
     }
 
     return render(
@@ -152,28 +172,31 @@ def job_list(request):
 def create_job(request):
 
     if request.method == 'POST':
-
         form = MaintenanceJobForm(request.POST)
 
-        if form.is_valid():
+        # Only show this user's properties
+        form.fields['property'].queryset = Property.objects.filter(
+            user=request.user
+        )
 
+        if form.is_valid():
             job = form.save(commit=False)
             job.user = request.user
             job.save()
             return redirect('job_list')
 
     else:
-
         form = MaintenanceJobForm()
 
-    context = {
-        'form': form
-    }
+        # Only show this user's properties
+        form.fields['property'].queryset = Property.objects.filter(
+            user=request.user
+        )
 
     return render(
         request,
         'maintenance/create_job.html',
-        context
+        {'form': form}
     )
 
 @login_required
