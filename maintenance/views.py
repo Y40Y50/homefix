@@ -7,16 +7,16 @@ from django.contrib.auth.decorators import login_required
 def home(request):
 
     property_count = Property.objects.filter(
-    user=request.user
-).count()
+        user=request.user
+    ).count()
 
-contractor_count = Contractor.objects.filter(
-    user=request.user
-).count()
+    contractor_count = Contractor.objects.filter(
+        user=request.user
+    ).count()
 
-job_count = MaintenanceJob.objects.filter(
-    user=request.user
-).count()
+    job_count = MaintenanceJob.objects.filter(
+        user=request.user
+    ).count()
 
     context = {
         'property_count': property_count,
@@ -29,7 +29,6 @@ job_count = MaintenanceJob.objects.filter(
         'maintenance/home.html',
         context
     )
-
 @login_required
 def property_list(request):
 
