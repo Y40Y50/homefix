@@ -1,6 +1,8 @@
 {% extends 'maintenance/base.html' %}
+{% load static %}
 
 {% block content %}
+...
 <div class="hero-section text-center">
 
     <h1 class="display-3 fw-bold">
@@ -41,30 +43,96 @@
 
     <div class="row">
 
-        <div class="col-md-4">
-            <div class="card offer-card shadow-sm">
-                <div class="card-body text-center">
-                    <h5>Plumbing Service</h5>
-                    <p>20% off this month.</p>
+        <!-- Plumbing -->
+        <div class="col-md-4 mb-4">
+            <div class="offer-card">
+
+                <img src="{% static 'images/plumbing.jpg' %}"
+                     class="offer-image">
+
+                <div class="offer-content p-3">
+
+                    <span class="badge bg-danger">
+                        20% OFF
+                    </span>
+
+                    <h5 class="mt-2">
+                        Plumbing Service
+                    </h5>
+
+                    <p>
+                        Professional plumbing repairs and installations.
+                    </p>
+
+                    <a href="/accounts/register/"
+                       class="btn btn-primary">
+                        Book Now
+                    </a>
+
                 </div>
+
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="card offer-card shadow-sm">
-                <div class="card-body text-center">
-                    <h5>Electrical Repairs</h5>
-                    <p>Free inspection included.</p>
+        <!-- Electrical -->
+        <div class="col-md-4 mb-4">
+            <div class="offer-card">
+
+                <img src="{% static 'images/electrical.jpg' %}"
+                     class="offer-image">
+
+                <div class="offer-content p-3">
+
+                    <span class="badge bg-warning text-dark">
+                        FREE
+                    </span>
+
+                    <h5 class="mt-2">
+                        Electrical Repairs
+                    </h5>
+
+                    <p>
+                        Free inspection included with every booking.
+                    </p>
+
+                    <a href="/accounts/register/"
+                       class="btn btn-primary">
+                        Book Now
+                    </a>
+
                 </div>
+
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="card offer-card shadow-sm">
-                <div class="card-body text-center">
-                    <h5>Painting Services</h5>
-                    <p>Special summer discounts.</p>
+        <!-- Painting -->
+        <div class="col-md-4 mb-4">
+            <div class="offer-card">
+
+                <img src="{% static 'images/painting.jpg' %}"
+                     class="offer-image">
+
+                <div class="offer-content p-3">
+
+                    <span class="badge bg-success">
+                        SUMMER DEAL
+                    </span>
+
+                    <h5 class="mt-2">
+                        Painting Services
+                    </h5>
+
+                    <p>
+                        Refresh your property with special discounts.
+                    </p>
+
+                    <a href="/accounts/register/"
+                       class="btn btn-primary">
+                        Book Now
+                    </a>
+
                 </div>
+
             </div>
         </div>
 
@@ -82,27 +150,31 @@
 
     <div class="row text-center">
 
-        <div class="col-md-3">
-            <div class="card category-card offer-card shadow-sm">
-                Plumbing
+        <div class="col-md-3 mb-3">
+            <div class="category-card">
+                🔧
+                <h5 class="mt-2">Plumbing</h5>
             </div>
         </div>
 
-        <div class="col-md-3">
-            <div class="card category-card offer-card shadow-sm">
-                Electrical
+        <div class="col-md-3 mb-3">
+            <div class="category-card">
+                ⚡
+                <h5 class="mt-2">Electrical</h5>
             </div>
         </div>
 
-        <div class="col-md-3">
-            <div class="card category-card offer-card shadow-sm">
-                Painting
+        <div class="col-md-3 mb-3">
+            <div class="category-card">
+                🎨
+                <h5 class="mt-2">Painting</h5>
             </div>
         </div>
 
-        <div class="col-md-3">
-            <div class="card category-card offer-card shadow-sm">
-                Carpentry
+        <div class="col-md-3 mb-3">
+            <div class="category-card">
+                🪚
+                <h5 class="mt-2">Carpentry</h5>
             </div>
         </div>
 
@@ -111,7 +183,6 @@
 </section>
 
 <!-- Most Requested -->
-
 <section class="my-5">
 
     <h2 class="text-center mb-4">
@@ -120,55 +191,107 @@
 
     <div class="row">
 
-        <div class="col-md-4">
-            <div class="card offer-card shadow-sm">
-                <div class="card-body">
-                    Emergency Plumbing
+        <div class="col-md-4 mb-4">
+            <div class="offer-card">
+
+                <img src="{% static 'images/emergency-plumbing.jpg' %}"
+                     class="offer-image">
+
+                <div class="offer-content p-3">
+
+                    <h5>Emergency Plumbing</h5>
+
+                    <p>
+                        Fast response for leaks, blocked drains and pipe repairs.
+                    </p>
+
+                    <a href="/accounts/register/"
+                       class="btn btn-outline-primary">
+                        Request Service
+                    </a>
+
                 </div>
+
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="card offer-card shadow-sm">
-                <div class="card-body">
-                    Electrical Installation
+        <div class="col-md-4 mb-4">
+            <div class="offer-card">
+
+                <img src="{% static 'images/electrical-installation.jpeg' %}"
+                     class="offer-image">
+
+                <div class="offer-content p-3">
+
+                    <h5>Electrical Installation</h5>
+
+                    <p>
+                        Safe installation of sockets, lighting and wiring.
+                    </p>
+
+                    <a href="/accounts/register/"
+                       class="btn btn-outline-primary">
+                        Request Service
+                    </a>
+
                 </div>
+
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="card offer-card shadow-sm">
-                <div class="card-body">
-                    Interior Painting
+        <div class="col-md-4 mb-4">
+            <div class="offer-card">
+
+                <img src="{% static 'images/interior-painting.jpg' %}"
+                     class="offer-image">
+
+                <div class="offer-content p-3">
+
+                    <h5>Interior Painting</h5>
+
+                    <p>
+                        Professional painting services for homes and offices.
+                    </p>
+
+                    <a href="/accounts/register/"
+                       class="btn btn-outline-primary">
+                        Request Service
+                    </a>
+
                 </div>
+
             </div>
         </div>
 
     </div>
 
 </section>
-
 <!-- Contact -->
+<footer class="footer mt-5">
 
-<section class="my-5 text-center">
+    <div class="container text-center">
 
-    <h2>Contact Us</h2>
+        <h4>Contact Us</h4>
 
-    <p>Email: support@homefix.com</p>
+        <p>Email: support@homefix.com</p>
 
-    <p>Phone: +44 123 456 7890</p>
+        <p>Phone: +44 123 456 7890</p>
 
-</section>
+        <h4 class="mt-4">Follow Us</h4>
 
-<!-- Social -->
+        <p>
+            Facebook |
+            Instagram |
+            LinkedIn
+        </p>
 
-<section class="my-5 text-center">
+        <hr>
 
-    <h2>Follow Us</h2>
+        <p>
+            © 2026 HomeFix. All Rights Reserved.
+        </p>
 
-    <p>
-        Facebook | Instagram | LinkedIn
-    </p>
+    </div>
 
-</section>
+</footer>
 {% endblock %}
