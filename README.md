@@ -389,6 +389,19 @@ The desktop wireframe was created during the planning stage to define the struct
 
 ![Desktop Wireframe](README-assets/homepage-wireframe-desktop.png)
 
+# Bugs
+
+## Fixed Bugs
+
+* Book Now buttons originally redirected unauthenticated users to the registration page. This was updated to improve the user journey.
+* HTML validation errors caused by missing alt attributes were resolved.
+* Heading hierarchy issues identified during validation were corrected.
+* Python PEP8 formatting issues were fixed following validation testing.
+
+## Known Bugs
+
+* No known bugs at the time of submission.
+
 # Future Improvements
 
 The following features could be added in future versions of HomeFix:
