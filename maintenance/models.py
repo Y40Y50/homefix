@@ -2,6 +2,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 # Creating a Model for Property
 class Property(models.Model):
 
@@ -31,7 +32,9 @@ class Property(models.Model):
 
     def __str__(self):
         return self.name
-# Creating the Contractor Table 
+
+
+# Creating the Contractor Table
 class Contractor(models.Model):
 
     TRADE_TYPES = [
@@ -62,6 +65,8 @@ class Contractor(models.Model):
 
     def __str__(self):
         return self.name
+
+
 class MaintenanceJob(models.Model):
 
     user = models.ForeignKey(

@@ -253,6 +253,28 @@ python manage.py migrate
 
 python manage.py runserver
 
+
+# Deployment
+
+## Heroku Deployment
+
+The application was deployed using Heroku.
+
+### Deployment Steps
+
+1. Create a Heroku application.
+2. Connect the GitHub repository.
+3. Configure environment variables.
+4. Deploy the main branch.
+5. Run database migrations.
+6. Open the deployed application.
+
+## Live Website
+
+[Add your deployed website URL here]
+
+
+
 # Security Features
 
 The HomeFix application implements several security features to protect user data.
@@ -359,6 +381,8 @@ Bootstrap 5 was used for responsive design and layout components.
 
 # Wireframes
 
+The following wireframes were created during the planning stage of the project.
+
 ## Desktop Home Page Wireframe
 
 The desktop wireframe was created during the planning stage to define the structure and layout of the HomeFix homepage before development.
@@ -401,6 +425,84 @@ The following features could be added in future versions of HomeFix:
 | T15 | Navigation Menu | Navigate between pages | Correct page loads | Pass |
 
 
+# Validation
+
+## HTML Validation
+
+The HTML for the HomeFix project was validated using the W3C Nu HTML Checker.
+
+During development, validation errors were identified, including missing image alt attributes and heading hierarchy issues. These problems were corrected before final submission.
+
+The final validation check returned no errors or warnings.
+
+**Evidence:**
+
+![HTML Validation Results](README-assets/html_validator.png)
+
+---
+
+## CSS Validation
+
+The project's custom CSS stylesheet was validated using the W3C CSS Validation Service.
+
+The validator reported no errors, confirming that the stylesheet complies with current CSS standards.
+
+**Evidence:**
+
+![CSS Validation Results](README-assets/css_validator.png)
+
+---
+
+## Python (PEP8) Validation
+
+Python files were validated using the Code Institute CI Python Linter.
+
+Several issues were initially identified, including:
+
+* Line length violations
+* Trailing whitespace
+* Missing blank lines
+* Indentation inconsistencies
+
+After correcting these issues, all tested Python files passed validation with no errors.
+
+### Models.py
+
+**Evidence:**
+
+![Models.py Validation](README-assets/models_py_validator.png)
+
+### Views.py
+
+**Evidence:**
+
+![Views.py Validation](README-assets/views_py_validator.png)
+
+---
+
+## Django System Check
+
+Django's built-in system check framework was used throughout development to verify the project's configuration.
+
+Running the application returned:
+
+```bash
+python manage.py runserver
+```
+
+Result:
+
+```text
+System check identified no issues (0 silenced).
+```
+
+This confirms that the project's models, URLs, settings and installed applications were configured correctly.
+
+---
+
+## Validation Summary
+
+All HTML, CSS and Python code was successfully validated. Any issues identified during testing were resolved before project completion. The validation evidence provided above demonstrates compliance with web standards and PEP8 coding guidelines.
 
 
 
