@@ -349,7 +349,7 @@ The HomeFix application implements several security features to protect user dat
 
 ## Filter Maintenance Jobs
 
-![Filter Jobs](README-assets/filter_maintenance_jobs.png)
+![Filter Jobs](README-assets/fillter_maintenance_jobs.png)
 
 ## Pagination
 
