@@ -10,7 +10,7 @@ The project was developed using HTML, CSS, Bootstrap, Python, Django, and SQLite
 # Live Website
 
 Deployed Application:
-
+https://homefix-yahya-6300fce8c888.herokuapp.com/
 
 GitHub Repository:
 https://github.com/Y40Y50/homefix
@@ -268,10 +268,6 @@ The application was deployed using Heroku.
 4. Deploy the main branch.
 5. Run database migrations.
 6. Open the deployed application.
-
-## Live Website
-
-[Add your deployed website URL here]
 
 
 
