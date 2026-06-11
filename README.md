@@ -504,5 +504,25 @@ This confirms that the project's models, URLs, settings and installed applicatio
 
 All HTML, CSS and Python code was successfully validated. Any issues identified during testing were resolved before project completion. The validation evidence provided above demonstrates compliance with web standards and PEP8 coding guidelines.
 
+# Lighthouse Testing
+
+Google Lighthouse was used to evaluate the performance, accessibility, SEO and best practices of the HomeFix application.
+
+Testing was performed using Chrome Developer Tools on the Home Page in tablet view.
+
+## Results
+
+| Category       | Score |
+| -------------- | ----- |
+| Performance    | 87    |
+| Accessibility  | 92    |
+| Best Practices | 100   |
+| SEO            | 90    |
+
+The results indicate that the application performs well across key web quality metrics, with particularly strong scores in Best Practices, Accessibility and SEO.
+
+### Lighthouse Report
+
+![Lighthouse Report](README-assets/lighthouse_report.png)
 
 
