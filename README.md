@@ -406,13 +406,67 @@ Bootstrap 5 was used for responsive design and layout components.
 
 # Wireframes
 
-The following wireframes were created during the planning stage of the project.
+The following wireframes were created during the planning stage of the project to define the structure, layout and user journey before development began.
 
-## Desktop Home Page Wireframe
+## Home Page Wireframe
 
-The desktop wireframe was created during the planning stage to define the structure and layout of the HomeFix homepage before development.
+The homepage wireframe was designed to showcase the main services offered by HomeFix, highlight featured maintenance categories and provide clear navigation for users.
 
-![Desktop Wireframe](README-assets/homepage-wireframe-desktop.png)
+![Home Page Wireframe](README-assets/homepage-wireframe-desktop.png)
+
+---
+
+## Login Page Wireframe
+
+The login page wireframe was designed to provide users with a simple and secure way to access their accounts.
+
+![Login Page Wireframe](README-assets/login-wireframe.png)
+
+---
+
+## Dashboard Wireframe
+
+The dashboard wireframe was created to provide users with an overview of their properties, contractors and maintenance jobs from a central location.
+
+![Dashboard Wireframe](README-assets/dashboard-wireframe.png)
+
+---
+
+## Create Maintenance Job Wireframe
+
+The maintenance job creation wireframe was designed to allow users to quickly create and manage maintenance requests.
+
+![Create Maintenance Job Wireframe](README-assets/create-maintenance-job-wireframe.png)
+
+---
+
+## Final Implemented Screens
+
+The following screenshots show how the completed application compares with the original wireframes.
+
+### Login Page
+
+![Login Page](README-assets/login-page.png)
+
+### User Registration
+
+![Register Page](README-assets/register-page.png)
+
+### Add Property
+
+![Add Property](README-assets/add-property-page.png)
+
+### Add Contractor
+
+![Add Contractor](README-assets/add-contractor-page.png)
+
+### Create Maintenance Job
+
+![Create Maintenance Job](README-assets/create-maintenance-job-page.png)
+
+### Django Admin Panel
+
+![Admin Panel](README-assets/admin-panel.png)
 
 # Bugs
 
