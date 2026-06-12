@@ -413,6 +413,27 @@ The following features could be added in future versions of HomeFix:
 * Live chat support between property owners and contractors.
 
 
+## Database Design
+
+The HomeFix application uses a relational database consisting of four main entities:
+
+- User
+- Property
+- Contractor
+- MaintenanceJob
+
+The Entity Relationship Diagram (ERD) below shows the relationships between the entities and the use of primary and foreign keys within the database.
+
+![ERD](README-assets/erd.png)
+
+### Entity Relationships
+
+- One User can have many Properties.
+- One User can have many Contractors.
+- One User can have many Maintenance Jobs.
+- One Property can be linked to many Maintenance Jobs.
+- One Contractor can be linked to many Maintenance Jobs.
+
 # Testing
 
 | Test ID | Feature | Test Description | Expected Result | Result |
