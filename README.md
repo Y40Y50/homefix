@@ -544,7 +544,7 @@ The validation now prevents invalid phone numbers from being stored in the datab
 
 The screenshot below shows the validation message displayed when invalid text is entered into the phone number field.
 
-![Contractor Phone Validation](README-assets/valid-phon-mumber.png)
+![Contractor Phone Validation](README-assets/contractor-phone-validation.png)
 
 ## Known Bugs
 
@@ -594,6 +594,26 @@ The following features could be added in future versions of HomeFix:
 | T14 | Tablet Responsive Design | Open website on tablet screen | Layout adapts correctly | Pass |
 | T15 | Navigation Menu | Navigate between pages | Correct page loads | Pass |
 
+
+## Testing Approach
+
+Manual testing was carried out throughout the development process and after deployment to Heroku.
+
+All core functionality was tested on both the local development version and the deployed application to ensure consistent behaviour.
+
+The following areas were tested:
+
+- User registration
+- User login and logout
+- Property management (Create, Read, Update, Delete)
+- Contractor management (Create, Read, Update, Delete)
+- Maintenance job management (Create, Read, Update, Delete)
+- Form validation
+- Navigation
+- Responsive design
+- Deployment functionality
+
+The results of the manual tests are shown in the table below.
 
 # Validation
 
