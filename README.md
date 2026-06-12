@@ -488,6 +488,31 @@ The login view was updated to handle invalid authentication attempts and display
 Result:
 Users now receive a validation message instead of a server error.
 
+## Bug Fixes and Validation Testing
+
+### Contractor Phone Number Validation
+
+During testing, it was discovered that the Contractor form accepted text values in the phone number field. This allowed invalid data such as "test" or "adafd" to be entered and saved.
+
+To resolve this issue, phone number validation was added to the Contractor form. The system now checks the input and prevents non-numeric phone numbers from being submitted.
+
+**Test Performed**
+
+| Test Case | Input | Expected Result | Actual Result | Status |
+|------------|--------|----------------|--------------|--------|
+| Valid phone number | 07812345678 | Form submits successfully | Form submitted successfully | Pass |
+| Invalid phone number | adafd | Validation error displayed | "Enter a valid phone number" displayed | Pass |
+
+**Result**
+
+The validation now prevents invalid phone numbers from being stored in the database, improving data quality and user input validation.
+
+### Evidence
+
+The screenshot below shows the validation message displayed when invalid text is entered into the phone number field.
+
+![Contractor Phone Validation](README-assets/valid-phon-mumber.png)
+
 ## Known Bugs
 
 * No known bugs at the time of submission.
