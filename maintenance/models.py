@@ -35,6 +35,13 @@ class Property(models.Model):
 
 
 # Creating the Contractor Table
+from django.core.validators import RegexValidator
+
+phone_validator = RegexValidator(
+    regex=r'^\+?[\d\s()-]{7,20}$',
+    message='Enter a valid phone number.'
+)
+
 class Contractor(models.Model):
 
     TRADE_TYPES = [
@@ -59,13 +66,15 @@ class Contractor(models.Model):
         choices=TRADE_TYPES
     )
 
-    phone = models.CharField(max_length=20)
+    phone = models.CharField(
+        max_length=20,
+        validators=[phone_validator]
+    )
 
     email = models.EmailField()
 
     def __str__(self):
         return self.name
-
 
 class MaintenanceJob(models.Model):
 
