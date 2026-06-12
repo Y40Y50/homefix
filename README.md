@@ -270,6 +270,35 @@ The application was deployed using Heroku.
 6. Open the deployed application.
 
 
+# Deployment Testing
+
+The deployed Heroku application was tested against the local development version to ensure that all functionality worked correctly after deployment.
+
+| Feature | Local Version | Live Version | Result |
+|----------|--------------|--------------|---------|
+| Homepage loads | Pass | Pass | Pass |
+| User Registration | Pass | Pass | Pass |
+| User Login | Pass | Pass | Pass |
+| Create Property | Pass | Pass | Pass |
+| Edit Property | Pass | Pass | Pass |
+| Delete Property | Pass | Pass | Pass |
+| Create Contractor | Pass | Pass | Pass |
+| Create Maintenance Job | Pass | Pass | Pass |
+| Search Jobs | Pass | Pass | Pass |
+| Filter Jobs | Pass | Pass | Pass |
+| Responsive Design | Pass | Pass | Pass |
+
+The deployed application behaved consistently with the local development version.
+
+## Form Validation Testing
+
+| Test | Input | Expected Result | Result |
+|--------|--------|--------|--------|
+| Property name left blank | Empty field | Form validation message displayed | Pass |
+| Contractor email invalid | test@test | Validation error displayed | Pass |
+| Required fields empty | Empty submission | User prevented from submitting form | Pass |
+| Login invalid credentials | Wrong username/password | Error message displayed | Pass |
+
 
 # Security Features
 
@@ -393,6 +422,17 @@ The desktop wireframe was created during the planning stage to define the struct
 * HTML validation errors caused by missing alt attributes were resolved.
 * Heading hierarchy issues identified during validation were corrected.
 * Python PEP8 formatting issues were fixed following validation testing.
+
+### Login Error
+
+Issue:
+Entering invalid login credentials caused a Server Error (500).
+
+Fix:
+The login view was updated to handle invalid authentication attempts and display an appropriate error message to the user.
+
+Result:
+Users now receive a validation message instead of a server error.
 
 ## Known Bugs
 
