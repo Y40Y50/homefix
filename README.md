@@ -7,6 +7,21 @@ Users can create accounts, register properties, add contractors, and track maint
 
 The project was developed using HTML, CSS, Bootstrap, Python, Django, and SQLite, following full CRUD functionality and responsive web design principles.
 
+
+# Purpose and Value
+
+HomeFix was created to help property owners manage maintenance activities through a single web application.
+
+The platform provides value to users by:
+
+- Storing property information in one central location.
+- Managing contractor details efficiently.
+- Creating and tracking maintenance jobs from creation to completion.
+- Providing search and filtering tools to quickly locate jobs.
+- Reducing the need for paper-based records and spreadsheets.
+- Allowing users to access maintenance records from any device through a responsive web interface.
+
+
 # Live Website
 
 Deployed Application:
@@ -422,6 +437,7 @@ The HomeFix application implements several security features to protect user dat
 ![Tablet View](README-assets/tablet_view.png)
 
 
+
 # Credits
 
 ## Media
@@ -589,10 +605,11 @@ The following features could be added in future versions of HomeFix:
 | T09 | Delete Maintenance Job | Delete an existing job | Job removed successfully | Pass |
 | T10 | Search Jobs | Search by job title | Matching jobs displayed | Pass |
 | T11 | Filter Jobs | Filter by status | Correct jobs displayed | Pass |
-| T12 | Pagination | Navigate between pages | Correct page displayed | Pass |
-| T13 | Mobile Responsive Design | Open website on mobile screen | Layout adapts correctly | Pass |
-| T14 | Tablet Responsive Design | Open website on tablet screen | Layout adapts correctly | Pass |
-| T15 | Navigation Menu | Navigate between pages | Correct page loads | Pass |
+| T12 | Sort Jobs | Sort by newest/oldest | Jobs displayed in correct order | Pass |
+| T13 | Pagination | Navigate between pages | Correct page displayed | Pass |
+| T14 | Mobile Responsive Design | Open website on mobile screen | Layout adapts correctly | Pass |
+| T15 | Tablet Responsive Design | Open website on tablet screen | Layout adapts correctly | Pass |
+| T16 | Navigation Menu | Navigate between pages | Correct page loads | Pass |
 
 
 ## Testing Approach
