@@ -517,6 +517,55 @@ The following screenshots show how the completed application compares with the o
 
 ![Admin Panel](README-assets/admin-panel.png)
 
+# Manual Testing
+
+## Authentication Testing
+
+| Test | Expected Result | Actual Result | Status |
+|--------|--------|--------|--------|
+| Register new user | Account created | Account created | Pass |
+| Login valid user | User logged in | User logged in | Pass |
+| Login invalid password | Error message displayed | Error displayed | Pass |
+| Logout | User logged out | User logged out | Pass |
+
+## Property Testing
+
+| Test | Expected Result | Actual Result | Status |
+|--------|--------|--------|--------|
+| Create property | Property saved | Property saved | Pass |
+| Edit property | Changes saved | Changes saved | Pass |
+| Delete property | Property removed | Property removed | Pass |
+
+## Contractor Testing
+
+| Test | Expected Result | Actual Result | Status |
+|--------|--------|--------|--------|
+| Create contractor | Contractor saved | Contractor saved | Pass |
+| Invalid email | Validation error | Validation error shown | Pass |
+| Invalid phone number | Validation error | Validation error shown | Pass |
+| Edit contractor | Changes saved | Changes saved | Pass |
+| Delete contractor | Contractor removed | Contractor removed | Pass |
+
+## Maintenance Job Testing
+
+| Test | Expected Result | Actual Result | Status |
+|--------|--------|--------|--------|
+| Create job | Job saved | Job saved | Pass |
+| Edit job | Changes saved | Changes saved | Pass |
+| Delete job | Job removed | Job removed | Pass |
+| Search job | Matching jobs returned | Correct jobs returned | Pass |
+| Filter by status | Correct jobs displayed | Correct jobs displayed | Pass |
+| Pagination | Next page displayed | Next page displayed | Pass |
+
+## Responsive Testing
+
+| Device | Expected Result | Actual Result | Status |
+|----------|----------|----------|----------|
+| Desktop | Layout displays correctly | Layout displayed correctly | Pass |
+| Tablet | Layout adapts to tablet screen | Layout adapted correctly | Pass |
+| Mobile | Layout adapts to mobile screen | Layout adapted correctly | Pass |
+
+
 # Bugs
 
 ## Fixed Bugs
@@ -582,15 +631,8 @@ The following features could be added in future versions of HomeFix:
 
 
 
-### Entity Relationships
 
-- One User can have many Properties.
-- One User can have many Contractors.
-- One User can have many Maintenance Jobs.
-- One Property can be linked to many Maintenance Jobs.
-- One Contractor can be linked to many Maintenance Jobs.
-
-# Testing
+# Test Summary
 
 | Test ID | Feature | Test Description | Expected Result | Result |
 |----------|----------|------------------|----------------|---------|
